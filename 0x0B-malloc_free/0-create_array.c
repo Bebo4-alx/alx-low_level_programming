@@ -24,10 +24,11 @@ ch = malloc(sizeof(*ch) * size);
 if (ch)
 {
 for (i = 0; i <= size; i++)
-															ch[i] = c;
+ch[i] = c;
 
 return (ch);
-														}	else
+}
+else
 
 return (NULL);
 }
