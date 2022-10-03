@@ -73,11 +73,9 @@ return (NULL);
 
 for (k = 0; k < j; k++)
 {
-														while (str[i] == ' ')
+while (str[i] == ' ')
 															i++;
-
 															l = len(str + i);
-
 															s[k] = malloc(sizeof(char) * (l + 1));
 
 															if (s[k] == NULL)

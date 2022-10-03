@@ -22,7 +22,7 @@ return (NULL);
 for (i = 0; i < ac; i++)
 {
 for (j = 0; av[i][j]; j++)
-															l++;
+l++;
 }
 
 st = malloc(sizeof(char) * l + 1);
@@ -32,9 +32,8 @@ return (NULL);
 
 for (i = 0; i < ac; i++)
 {
-														for (j = 0; av[i][j]; j++)
+for (j = 0; av[i][j]; j++)
 															st[k++] = av[i][j];
-
 															st[k++] = '\n';
 															}
 

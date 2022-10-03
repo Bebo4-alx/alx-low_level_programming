@@ -26,25 +26,24 @@ while (hi < height)
 {
 arr[hi] = malloc(sizeof(int) * width);
 
-														if (arr[hi] == NULL)
-															{
-															while (hi >= 0)
-															{
-																														free(arr[hi]);
-																														hi--;
-																														}
+if (arr[hi] == NULL
+{
+while (hi >= 0)
+{
+free(arr[hi]);
+															hi--;
+															}
 															free(arr);
 															return (NULL);
-																													}
-															hi++;
 															}
-
+hi++;
+															}
 for ( ; hi < height; hi++)
 {
 for (wi = 0; wi < width; wi++)
-															{
-															arr[hi][wi] = 0;
-															}
-														}
-return (arr);
+{
+arr[hi][wi] = 0;
+
+}
+	return (arr);
 }
