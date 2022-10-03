@@ -13,15 +13,15 @@ int word(char *str);
  */
 int len(char *str)
 {
-int i = 0, j = 0;
+	int i = 0, j = 0;
 
-while (*(str + i) && *(str + i) != ' ')
-{
-j++;
-i++;
-}
+	while (*(str + i) && *(str + i) != ' ')
+	{
+		j++;
+		i++;
+	}
 
-return (j);
+	return (j);
 }
 
 /**
@@ -32,65 +32,70 @@ return (j);
  */
 int words(char *str)
 {
-int i = 0, j = 0, l = 0;
+	int i = 0, j = 0, l = 0;
 
-for (i = 0; *(str + i); i++)
-l++;
+	for (i = 0; *(str + i); i++)
+		l++;
 
-for (i = 0; i < l; i++)
-{
-if (*(str + i) != ' ')
-{
-															j++;
-															i += len(str + i);
-															}
-}
-return (j);
+	for (i = 0; i < l; i++)
+	{
+		if (*(str + i) != ' ')
+		{
+			j++;
+			i += len(str + i);
+		}
+	}
+
+	return (j);
 }
 
 /**
  * strtow - Splits a string into words.
- *  @str: The string to be split.
+ * @str: The string to be split.
  *
  * Return: Pointer to an array of strings.
  *	   NULL is str == NULL || str == "" and if in failure.
  */
 char **strtow(char *str)
 {
-char **s;
-int i = 0, j, k, l, m;
+	char **s;
+	int i = 0, j, k, l, m;
 
-if (str == NULL || str[0] == '\0')
-return (NULL);
+	if (str == NULL || str[0] == '\0')
+		return (NULL);
 
-j = words(str);
-if (j == 0)
-return (NULL);
+	j = words(str);
+	if (j == 0)
+		return (NULL);
 
-s = malloc(sizeof(char *) * (j + 1));
-if (s == NULL)
-return (NULL);
+	s = malloc(sizeof(char *) * (j + 1));
+	if (s == NULL)
+		return (NULL);
 
-for (k = 0; k < j; k++)
-{
-while (str[i] == ' ')
-															i++;
-															l = len(str + i);
-															s[k] = malloc(sizeof(char) * (l + 1));
+	for (k = 0; k < j; k++)
+	{
+		while (str[i] == ' ')
+			i++;
 
-															if (s[k] == NULL)
-															{
-															for (; k >= 0; k--)
-																														free(s[k]);
+		l = len(str + i);
 
-																														free(s);
-																														return (NULL);
-																														}
-															for (m = 0; m < l; m++)
-															s[k][m] = str[i++];
-															s[k][m] = '\0';
-															}
-s[k] = NULL;
+		s[k] = malloc(sizeof(char) * (l + 1));
 
-return (s);
+		if (s[k] == NULL)
+		{
+			for (; k >= 0; k--)
+				free(s[k]);
+
+			free(s);
+			return (NULL);
+		}
+
+		for (m = 0; m < l; m++)
+			s[k][m] = str[i++];
+
+		s[k][m] = '\0';
+	}
+	s[k] = NULL;
+
+	return (s);
 }
